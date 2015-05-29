@@ -8,16 +8,15 @@ import java.util.Objects;
 /**
  * Created by arpine on 5/14/15.
  */
-public class SolarSystemPlanets {
+public class SolarSystemPlanets{
+	private double mass;
+	private double radius;
 	private int number;
-	private  double mass;
-	private  double radius;
 	private  double rotationTime;
 	private  String name;
 	private  String composition;
 	private Date dateOfDiscovery;
 	private PlanetType planetType;
-
 
 	public static class PlanetBuilder {
 
@@ -93,10 +92,11 @@ public class SolarSystemPlanets {
 		this.planetType = builder.planetType;
 	}
 
+
 	@Override
 	public String toString() {
 		return "SolarSystemPlanets{" +
-				"number=" + Objects.toString(number)  +
+				"number=" + Objects.toString(this.number)  +
 				", mass=" + mass +
 				", radius=" + radius +
 				", rotationTime=" + rotationTime +
