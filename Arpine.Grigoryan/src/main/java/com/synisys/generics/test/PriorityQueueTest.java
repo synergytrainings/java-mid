@@ -3,6 +3,8 @@ package com.synisys.generics.test;
 import com.synisys.excaptions.exceptions.ExistingCustomerIdException;
 
 import static org.junit.Assert.assertArrayEquals;
+
+import com.synisys.generics.Node;
 import com.synisys.generics.PriorityQueue;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,7 +16,7 @@ import org.junit.Test;
 public class PriorityQueueTest {
 	private PriorityQueue<String> pqString;
 	private PriorityQueue<Integer> pqInteger;
-	private PriorityQueue<Double> pqDouble;
+	private PriorityQueue<Node> pqNode;
 
 	/**
 	 * Create new dummy priorityQueue
@@ -24,7 +26,7 @@ public class PriorityQueueTest {
 			throws ExistingCustomerIdException {
 		this.pqString = new PriorityQueue<String>();
 		this.pqInteger = new PriorityQueue<Integer>();
-		this.pqDouble = new PriorityQueue<Double>();
+		this.pqNode = new PriorityQueue<Node>();
 
 	}
 
@@ -69,6 +71,32 @@ public class PriorityQueueTest {
 
 		for (int i = 0 ; i < 5; i ++) {
 			result[i] = pqInteger.heapExtractMax();
+		}
+
+		assertArrayEquals(sorted, result);
+
+	}
+
+
+	/**
+	 * Sort queue with Integer
+	 */
+	@Test
+	public void testNodeQueue (){
+		Node node1 = new Node("C", 27);
+		Node node2 = new Node("z", 7);
+		Node node3 = new Node("A",133 );
+
+		Node[] sorted = {node3, node1, node2};
+
+		Node[] result = new Node[3];
+
+		this.pqNode.push(node1);
+		this.pqNode.push(node2);
+		this.pqNode.push(node3);
+
+		for (int i = 0 ; i < 3; i ++) {
+			result[i] = pqNode.heapExtractMax();
 		}
 
 		assertArrayEquals(sorted, result);

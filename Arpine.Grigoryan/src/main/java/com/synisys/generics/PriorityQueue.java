@@ -112,7 +112,7 @@ public class PriorityQueue <E extends Comparable> {
 
 
 	private int compare(E var1, E var2) {
-		return var1 == null && var2 == null?0:(var1 == null?-1:(var2 == null?1: var1.compareTo(var2))); //var1.toString().compareTo( var2.toString())));
+		return var1.compareTo(var2); //var1.toString().compareTo( var2.toString())));
 	}
 
 	}
